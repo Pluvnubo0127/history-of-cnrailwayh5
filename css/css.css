@@ -1,0 +1,267 @@
+@font-face {
+    font-family: 'Silver';
+    src: url('../fonts/Silver.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Z Labs Bitmap 12px CN';
+    src: url('../fonts/ZLabsBitmap_12px_CN.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Silver', sans-serif;
+}
+#cx {
+    cursor: url('../res/page1/铲子.png'), pointer;
+}
+#cx2 {
+    cursor: url('../res/page1/铲子.png'), pointer;
+}
+#st {
+    cursor:pointer;
+}
+#st1 {
+    cursor:pointer;
+}
+.fade-loop {
+    animation: fadeLoop 3s infinite;
+}
+@keyframes fadeLoop {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+
+}
+
+.fade-in-out {
+    animation: fadeInOut 3s infinite;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+#puzzle {
+    height: 324px; /* 与 Canvas 设置的高度相同 */
+    position: relative;
+}
+.f-text{
+    font-size: 20px;
+    color:white;
+    font-weight: bold;
+    user-select: none;
+}
+
+.shokai{
+    font-size:20px;
+    color:#ffffff;
+    text-align: center;
+    font-weight: bold;
+    user-select: none;
+    font-family: 'Z Labs Bitmap 12px CN', sans-serif;
+    font-size: 12px;
+}
+
+.choose{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border: 2px solid white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:25px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+}
+.choose:hover {
+    background-color:white;
+    color:black;
+}
+.choose:active {
+    background-color: aliceblue;
+    color:dimgray;
+}
+.canCheck {
+    background-color: none;
+    background-repeat: no-repeat;
+    display: inline;
+   cursor: url('../res/1-1.png'),pointer;
+}
+ .click-effect {
+            position: fixed;
+            width: 32px;
+            height: 46px;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: clickAnimation 0.8s ease-out forwards;
+            background-size: contain;
+            background-repeat: no-repeat;
+            
+        }
+        
+        
+        @keyframes clickAnimation {
+            0% {
+                transform: translate(-50%, -50%) scale(0.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+                filter: blur(2px);
+            }
+        }
+
+.choose4{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border: 2px solid white;
+    cursor: url('../res/1-1.png'),pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:24px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+}
+.choose4:hover {
+    background-color:white;
+    color:black;
+}
+.choose4:active {
+    background-color: aliceblue;
+    color:dimgray;
+}
+#Pencil {
+    pointer-events: none;  /* 防止元素影响鼠标事件 */
+    position: fixed;
+}
+ .cls-2 {
+           fill:none;
+           stroke-width: 2.8px;
+           stroke:#000
+                                
+        }
+.cls-1 {
+        fill: #7a7979;
+        stroke-width: 0px;
+                            }
+#eleB, #eleB-clone {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.CRHmess{
+    font-size: 16px;
+    color:#002547;
+    font-weight: none;
+    user-select: none;
+    text-align: center;
+}
+/* 加载提示页面样式 */
+.loading-screen {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.953);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+#loading-bar {
+    font-family: 'Z Labs Bitmap 12px CN', sans-serif;
+    margin-top: 20px;
+    font-size: 24px;
+    letter-spacing: 2px;
+    word-break: break-all;
+    max-width: 80%;
+    min-height: 30px;
+    color: white;
+}
+#loading-progress {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* 横竖屏提示样式 */
+.orientation-tip {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+}
+.orientation-tip img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+}
+
+/* 竖屏时显示提示 */
+@media screen and (orientation: portrait) {
+    .orientation-tip {
+        display: flex;
+    }
+    
+    .svg {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+#fromText{
+    font-size: 6px;
+    color:rgb(219, 223, 255);
+    user-select: none;
+    font-family: 'Z Labs Bitmap 12px CN', sans-serif;
+}
+.choose25{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:25px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+}
+.choose25:hover {
+    background-color:white;
+    color:black;
+}
+.choose25:active {
+    background-color: aliceblue;
+    color:dimgray;
+}
